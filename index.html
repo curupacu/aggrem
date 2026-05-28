@@ -7,7 +7,6 @@
     <title>Aggrem</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2H2RkTWG5V8mJjHsK+u8i5/zTy1MaV0Xuf+3uLM=" crossorigin="" />
 </head>
 <body>
     <header class="site-header">
@@ -149,10 +148,13 @@
                     <p>Telefone: (11) 90000-0000</p>
                     <p>Email: Aggremtec@gmail.com</p>
                     <div class="map-container">
-    <div class="map-container">
-    <div id="map"></div>
-</div>
-</div>
+                        <iframe
+                            src="https://maps.google.com/maps?q=-23.609320,-46.607720&z=16&output=embed"
+                            title="Localização da Aggrem na ETEC Heliópolis"
+                            class="map-iframe"
+                            allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
                 <form class="contact-form">
                     <label>
@@ -210,8 +212,6 @@
         <p class="footer-note">© 2026 Aggrem. Todos os direitos reservados.</p>
     </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
     // =========================
     // CARROSSEL
@@ -245,37 +245,6 @@
 
     showSlide(currentIndex);
 
-// =========================
-// MAPA ETEC HELIÓPOLIS
-// =========================
-
-window.addEventListener('load', () => {
-
-    const etec = [-23.609320, -46.607720];
-
-    const map = L.map('map', {
-        zoomControl: true,
-        scrollWheelZoom: false
-    }).setView(etec, 16);
-
- L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-    L.marker(etec)
-        .addTo(map)
-        .bindPopup(`
-            <b>Aggrem</b><br>
-            Sede na ETEC Heliópolis
-        `)
-        .openPopup();
-
-    // Corrige renderização
-    setTimeout(() => {
-        map.invalidateSize();
-    }, 300);
-
-});
 </script>
 </body>
 </html>
