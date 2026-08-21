@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada | Aggrem</title>
+    <link rel="icon" type="image/svg+xml" href="img/A de aggrem.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #120d16;
+            --text: #f6f1f7;
+            --muted: #a89aad;
+            --primary: #9645c4;
+            --primary-light: #c17ce0;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            font-family: 'DM Sans', system-ui, sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #100b13 0%, #150f1a 45%, #1a121f 100%);
+            text-align: center;
+        }
+        .mark {
+            width: 2.2rem;
+            height: auto;
+            margin: 0 auto 2rem;
+        }
+        .code {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(4rem, 12vw, 7rem);
+            line-height: 1;
+            margin: 0;
+            color: var(--text);
+        }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 0.75rem 0 0.5rem;
+        }
+        p {
+            color: var(--muted);
+            max-width: 32ch;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        a.home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.6rem;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        a.home:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <svg class="mark" viewBox="0 0 37 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.10297 62.7618L11.103 48.7618M34.103 42.2618V9.26178L11.103 48.7618M34.103 42.2618C32.503 42.2618 11.103 48.7618 11.103 48.7618M34.103 42.2618V63.2618" stroke="url(#nfg)" stroke-width="5"/>
+            <defs>
+                <linearGradient id="nfg" x1="18.103" y1="9.26178" x2="18.103" y2="63.2618" gradientUnits="userSpaceOnUse">
+                    <stop offset="0.418269" stop-color="#6C0091"/>
+                    <stop offset="0.533654" stop-color="#46005D"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <p class="code">404</p>
+        <h1>Essa página não existe</h1>
+        <p>O endereço que você tentou acessar não foi encontrado. Confira o link ou volte para a página inicial.</p>
+        <a class="home" href="/">Voltar para o início</a>
+    </div>
+</body>
+</html>
