@@ -6,19 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aggrem</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="logo-area">
-            <div class="logo-icon">
-                <img src="img/A de aggrem.svg" alt="Logo da empresa">
-            </div>
+        <a class="logo-area" href="#">
+            <svg class="logo-mark" width="37" height="65" viewBox="0 0 37 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.10297 62.7618L11.103 48.7618M34.103 42.2618V9.26178L11.103 48.7618M34.103 42.2618C32.503 42.2618 11.103 48.7618 11.103 48.7618M34.103 42.2618V63.2618" stroke="url(#navg)" stroke-width="5"/>
+                <defs>
+                    <linearGradient id="navg" x1="18.103" y1="9.26178" x2="18.103" y2="63.2618" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#e0bbff"/>
+                        <stop offset="0.5" stop-color="#c97dff"/>
+                        <stop offset="1" stop-color="#7b2fd4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
             <div>
                 <h1 class="brand-name">Aggrem</h1>
                 <p class="brand-tag">Seu caminho para tecnologia</p>
             </div>
-        </div>
+        </a>
 
         <nav class="site-nav">
             <a href="#sobre">Sobre</a>
@@ -30,18 +39,20 @@
 
     <main>
         <section class="hero">
+            <div class="hero-glow"></div>
             <div class="hero-text">
-                <span class="eyebrow">Empresa de referência</span>
-                <h2>Bem Vindo</h2>
-                <p>fazemos projetos personalizados com competência.</p>
-               
-                <div class="hero-actions">
+                <h2 class="reveal">
+                    Seu caminho<br>
+                    <span class="gradient"><span id="typed-text"></span><span class="typed-cursor"></span></span>
+                </h2>
+                <p class="reveal reveal-delay-1">Fazemos projetos personalizados com competência — do jogo que conecta amigos à plataforma que transforma vidas.</p>
+
+                <div class="hero-actions reveal reveal-delay-2">
                     <a class="button primary" href="#contato">Fale conosco</a>
                     <a class="button secondary" href="#portfolio">Ver portfólio</a>
                 </div>
             </div>
-            <div class="hero-image">
-               
+            <div class="hero-image reveal reveal-delay-1">
                 <img src="img/Aggremlogo.svg" alt="Imagem da empresa">
             </div>
         </section>
@@ -55,24 +66,24 @@
             <div class="card-grid">
                 <article class="card">
                     <div class="card-icon">
-                        <img src="img/A de aggrem.svg" alt="Ícone de consultoria">
-                    </div>
-                    <h4>Consultoria</h4>
-                    <p>Adapte a oferta de consultoria para o seu público, com serviços de desenvolvimento de software.</p>
-                </article>
-                <article class="card">
-                    <div class="card-icon">
-                        <img src="img/A de aggrem.svg" alt="Ícone de desenvolvimento">
+                        <i class="fa-solid fa-code"></i>
                     </div>
                     <h4>Desenvolvimento</h4>
-                    <p>Mostre seus projetos e soluções, adaptando-as às necessidades do seu público.</p>
+                    <p>Sistemas web, aplicativos e plataformas digitais sob medida, adaptados às necessidades do seu público.</p>
                 </article>
                 <article class="card">
                     <div class="card-icon">
-                        <img src="img/A de aggrem.svg" alt="Ícone de marketing digital">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h4>Consultoria</h4>
+                    <p>Mapeamos o seu problema e indicamos a solução mais eficiente, com serviços de desenvolvimento de software.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <h4>Marketing Digital</h4>
-                    <p>Exiba campanhas, redes sociais e novos produtos com nossa ajuda.</p>
+                    <p>Cuidamos de campanhas, redes sociais e identidade visual para posicionar sua marca onde seu público está.</p>
                 </article>
             </div>
         </section>
@@ -87,26 +98,31 @@
                 <button class="carousel-button prev" aria-label="Anterior">❮</button>
                 <div class="carousel-track">
                     <article class="carousel-slide active">
-                        <img src="img/b23c5dc5966c6c261f6575fd394cd1a5.jpg" alt="Projeto 1">
+                        <div class="slide-visual slide-perfiz">
+                            <img src="img/Vector 1.png" alt="Logo do Perfiz">
+                        </div>
                         <div class="slide-caption">
-                            <h4>Projeto Inovador</h4>
-                            <p>adivoGO.</p>
+                            <h4>Perfiz</h4>
+                            <p>Versão online e multiplayer do clássico jogo Perfil — 751 cartas, 15 temas.</p>
+                            <a href="https://perfil-webapp.web.app/" target="_blank" rel="noopener noreferrer" class="slide-link">Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </article>
                     <article class="carousel-slide">
-                        <a href="https://perfil-webapp.firebaseapp.com/" target="_blank" rel="noopener noreferrer">
-                         <img src="img/Vector 1.png" alt="Projeto 2">
-                        </a>
+                        <div class="slide-visual slide-juridico">
+                            <span class="slide-visual-text">Plataforma Jurídica</span>
+                        </div>
                         <div class="slide-caption">
-                            <h4>Campanha de Sucesso</h4>
-                            <p>Perfil</p>
+                            <h4>Plataforma Jurídica</h4>
+                            <p>Triagem inteligente que conecta cidadãos a advogados independentes. Em desenvolvimento.</p>
                         </div>
                     </article>
                     <article class="carousel-slide">
-                        <img src="img/9a33facaeb8382fa00df4156ebba5bd6.jpg" alt="Projeto 3">
+                        <div class="slide-visual slide-soon">
+                            <span class="slide-visual-text">Em breve</span>
+                        </div>
                         <div class="slide-caption">
-                            <h4>Evento Corporativo</h4>
-                            <p>Cromoçomos</p>
+                            <h4>Novos projetos</h4>
+                            <p>Estamos sempre construindo novas soluções. Fique de olho!</p>
                         </div>
                     </article>
                 </div>
@@ -131,7 +147,24 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    
+                    <div class="about-card">
+                        <div class="about-stat">
+                            <span class="about-stat-num">3</span>
+                            <span class="about-stat-label">Projetos desenvolvidos</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num">751</span>
+                            <span class="about-stat-label">Cartas no Perfiz</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num">3</span>
+                            <span class="about-stat-label">Desenvolvedores</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-num">2026</span>
+                            <span class="about-stat-label">Ano de fundação</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,20 +189,27 @@
                         </iframe>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form" novalidate>
                     <label>
                         Nome
-                        <input type="text" placeholder="Seu nome">
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
                     </label>
                     <label>
                         Email
-                        <input type="email" placeholder="seu@email.com">
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </label>
+                    <label>
+                        Assunto
+                        <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?" required>
                     </label>
                     <label>
                         Mensagem
-                        <textarea rows="4" placeholder="Escreva sua mensagem"></textarea>
+                        <textarea rows="4" id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
                     </label>
-                    <button type="submit" class="button primary">Enviar mensagem</button>
+                    <button type="submit" id="form-btn" class="button primary" style="width:100%;">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+                    </button>
+                    <div id="form-feedback" class="form-feedback"></div>
                 </form>
             </div>
         </section>
@@ -214,6 +254,41 @@
 
 <script>
     // =========================
+    // TEXTO ROTATIVO (HERO)
+    // =========================
+    (function () {
+        const el = document.getElementById('typed-text');
+        if (!el) return;
+        const phrases = ['para evoluir.', 'para inovar.', 'para crescer.', 'para transformar.'];
+        let pi = 0, ci = 0, deleting = false;
+        function tick() {
+            const phrase = phrases[pi];
+            if (!deleting) {
+                el.textContent = phrase.slice(0, ++ci);
+                if (ci === phrase.length) { deleting = true; setTimeout(tick, 2400); return; }
+                setTimeout(tick, 85);
+            } else {
+                el.textContent = phrase.slice(0, --ci);
+                if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); return; }
+                setTimeout(tick, 48);
+            }
+        }
+        setTimeout(tick, 800);
+    })();
+
+    // =========================
+    // REVEAL ON SCROLL
+    // =========================
+    (function () {
+        const els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        els.forEach(el => io.observe(el));
+    })();
+
+    // =========================
     // CARROSSEL
     // =========================
     const slides = document.querySelectorAll('.carousel-slide');
@@ -245,6 +320,62 @@
 
     showSlide(currentIndex);
 
+</script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDxO-VWeoUu4nSXbSW5c6bRUKPqTQgxaoM",
+        authDomain: "aggrem.firebaseapp.com",
+        projectId: "aggrem",
+        storageBucket: "aggrem.firebasestorage.app",
+        messagingSenderId: "456664843574",
+        appId: "1:456664843574:web:890357463584d9df479f97"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // =========================
+    // FORMULÁRIO DE CONTATO
+    // =========================
+    (function () {
+        const form = document.getElementById('contact-form');
+        const btn = document.getElementById('form-btn');
+        const feedback = document.getElementById('form-feedback');
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+            feedback.className = 'form-feedback';
+
+            const data = {
+                nome: form.nome.value.trim(),
+                email: form.email.value.trim(),
+                assunto: form.assunto.value.trim(),
+                mensagem: form.mensagem.value.trim(),
+                lido: false,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            try {
+                await db.collection('contatos').add(data);
+                feedback.textContent = '✓ Mensagem enviada! Entraremos em contato em breve.';
+                feedback.className = 'form-feedback success';
+                form.reset();
+            } catch (err) {
+                feedback.textContent = '✗ Erro ao enviar. Tente novamente ou mande um e-mail diretamente.';
+                feedback.className = 'form-feedback error';
+                console.error(err);
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar mensagem';
+        });
+    })();
 </script>
 </body>
 </html>
