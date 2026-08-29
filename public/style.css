@@ -59,6 +59,13 @@ button:focus, a:focus, input:focus, textarea:focus {
     border-bottom: 1px solid rgba(201, 125, 255, 0.1);
 }
 
+.site-header,
+main,
+.site-footer {
+    position: relative;
+    z-index: 1;
+}
+
 .logo-area {
     display: flex;
     gap: 1rem;
@@ -119,43 +126,104 @@ button:focus, a:focus, input:focus, textarea:focus {
     width: 100%;
 }
 
-/* ── HERO ── */
-.hero {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    padding: 5rem 3rem 3rem;
-    overflow: hidden;
+/* ── MONTANHA 3D: fundo fixo, sobe conforme a página inteira rola ── */
+.mountain-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: var(--bg);
 }
 
-.hero-glow {
+#mountain-canvas {
     position: absolute;
-    top: -10%;
-    left: 5%;
-    width: 620px;
-    height: 460px;
-    background: radial-gradient(ellipse, rgba(155, 62, 255, 0.22) 0%, transparent 70%);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mountain-bg.mountain-bg-fallback {
+    background:
+        radial-gradient(ellipse 700px 500px at 50% 110%, rgba(155, 62, 255, 0.25), transparent 65%),
+        var(--bg);
+}
+
+.mountain-bg.mountain-bg-fallback #mountain-canvas {
+    display: none;
+}
+
+.hero-3d-loading {
+    position: fixed;
+    left: 50%;
+    bottom: 2.5rem;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    background: rgba(10, 6, 18, 0.6);
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(201, 125, 255, 0.15);
+    backdrop-filter: blur(8px);
+    transition: opacity 0.4s ease;
+}
+
+.hero-3d-loading.hidden {
+    opacity: 0;
     pointer-events: none;
-    z-index: 0;
+}
+
+.hero-3d-spinner {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 125, 255, 0.25);
+    border-top-color: var(--primary-light);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── HERO (texto sobre o fundo fixo da montanha) ── */
+.hero-3d {
+    position: relative;
+    z-index: 1;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
 }
 
 .hero-text {
     position: relative;
     z-index: 1;
+    max-width: 40rem;
+    padding: 0 3rem;
+    text-align: center;
 }
 
-.hero h2 {
+@media (min-width: 900px) {
+    .hero-text {
+        text-align: left;
+        margin-right: auto;
+        padding-left: 4rem;
+    }
+}
+
+.hero-text h2 {
     font-family: 'Syne', sans-serif;
     font-size: clamp(2.5rem, 4.2vw, 4rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.01em;
     margin: 0 0 1.2rem;
+    text-shadow: 0 4px 30px rgba(10, 6, 18, 0.6);
 }
 
-.hero h2 .gradient {
+.hero-text h2 .gradient {
     background: linear-gradient(135deg, var(--primary-light), var(--primary) 70%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -174,9 +242,10 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 @keyframes blink { 50% { opacity: 0; } }
 
-.hero p {
+.hero-text p {
     max-width: 40rem;
     color: var(--muted);
+    text-shadow: 0 2px 20px rgba(10, 6, 18, 0.7);
 }
 
 .hero-actions {
@@ -184,6 +253,18 @@ button:focus, a:focus, input:focus, textarea:focus {
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 2rem;
+}
+
+@media (min-width: 900px) {
+    .hero-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 899px) {
+    .hero-actions {
+        justify-content: center;
+    }
 }
 
 .button {
@@ -263,13 +344,62 @@ button:focus, a:focus, input:focus, textarea:focus {
     font-family: 'Syne', sans-serif;
     font-size: clamp(2rem, 2.5vw, 2.75rem);
     font-weight: 800;
+    text-shadow: 0 4px 30px rgba(10, 6, 18, 0.7);
 }
 
 .cards-section,
 .carousel-section,
 .about-section,
+.team-section,
 .contact-section {
     padding: 2.5rem 3rem 4rem;
+}
+
+/* ── EQUIPE ── */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.team-card {
+    background: linear-gradient(160deg, rgba(155, 62, 255, 0.07), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 125, 255, 0.4);
+}
+
+.team-photo {
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.1rem;
+    border: 2px solid rgba(201, 125, 255, 0.35);
+    box-shadow: 0 0 0 6px rgba(155, 62, 255, 0.08);
+}
+
+.team-card h4 {
+    margin: 0 0 0.35rem;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.team-role {
+    margin: 0;
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 /* ── SERVICE CARDS ── */
@@ -368,8 +498,14 @@ button:focus, a:focus, input:focus, textarea:focus {
     filter: drop-shadow(0 12px 40px rgba(0,0,0,0.4));
 }
 
-.slide-juridico {
-    background: linear-gradient(135deg, #1f1040, #0f0820);
+.slide-nocturis {
+    background: linear-gradient(135deg, #2b1f14, #150e09);
+}
+
+.slide-nocturis img {
+    width: 40%;
+    max-width: 240px;
+    filter: drop-shadow(0 12px 40px rgba(0,0,0,0.4));
 }
 
 .slide-soon {
@@ -458,6 +594,7 @@ button:focus, a:focus, input:focus, textarea:focus {
 
 .about-grid p {
     color: var(--text);
+    text-shadow: 0 2px 20px rgba(10, 6, 18, 0.7);
 }
 
 .about-grid strong {
@@ -665,6 +802,7 @@ button:focus, a:focus, input:focus, textarea:focus {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    overflow-wrap: anywhere;
 }
 
 .footer-section a:hover {
@@ -682,8 +820,8 @@ button:focus, a:focus, input:focus, textarea:focus {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem 1.5rem;
     font-size: 0.95rem;
 }
 
@@ -705,6 +843,18 @@ button:focus, a:focus, input:focus, textarea:focus {
     text-align: center;
     margin: 0;
     font-size: 0.95rem;
+}
+
+.footer-credit {
+    text-align: center;
+    margin: 0.4rem 0 0;
+    font-size: 0.78rem;
+    color: var(--faint);
+}
+
+.footer-credit a {
+    color: inherit;
+    text-decoration: underline;
 }
 
 /* ── REVEAL ANIMATION ── */
@@ -740,10 +890,6 @@ button:focus, a:focus, input:focus, textarea:focus {
         grid-template-columns: 1fr;
     }
 
-    .team-list {
-        grid-template-columns: 1fr;
-    }
-
     .site-header {
         padding: 1rem;
     }
@@ -752,6 +898,7 @@ button:focus, a:focus, input:focus, textarea:focus {
     .cards-section,
     .carousel-section,
     .about-section,
+    .team-section,
     .contact-section,
     .site-footer {
         padding-left: 1.2rem;
@@ -799,4 +946,23 @@ html {
 
 section {
     scroll-margin-top: 100px;
+}
+
+/* margem de segurança pra telas baixas, evita que o texto do hero corte */
+@media (max-height: 620px) {
+    .hero-text h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+    .hero-text p {
+        display: none;
+    }
+    .hero-actions {
+        margin-top: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-3d-loading .hero-3d-spinner {
+        animation: none;
+    }
 }

@@ -9,6 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/",
+            "gsap": "https://esm.sh/gsap@3.12.5",
+            "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger"
+        }
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -37,23 +47,26 @@
         </nav>
     </header>
 
+    <div class="mountain-bg" id="mountain-bg" aria-hidden="true">
+        <canvas id="mountain-canvas"></canvas>
+    </div>
+    <div class="hero-3d-loading" id="hero3d-loading">
+        <span class="hero-3d-spinner"></span> Carregando montanha…
+    </div>
+
     <main>
-        <section class="hero">
-            <div class="hero-glow"></div>
+        <section class="hero-3d" id="hero3d">
             <div class="hero-text">
                 <h2 class="reveal">
                     Seu caminho<br>
                     <span class="gradient"><span id="typed-text"></span><span class="typed-cursor"></span></span>
                 </h2>
-                <p class="reveal reveal-delay-1">Fazemos projetos personalizados com competência — do jogo que conecta amigos à plataforma que transforma vidas.</p>
+                <p class="reveal reveal-delay-1">Fazemos projetos personalizados com competência: do jogo que conecta amigos à plataforma que transforma vidas.</p>
 
                 <div class="hero-actions reveal reveal-delay-2">
                     <a class="button primary" href="#contato">Fale conosco</a>
                     <a class="button secondary" href="#portfolio">Ver portfólio</a>
                 </div>
-            </div>
-            <div class="hero-image reveal reveal-delay-1">
-                <img src="img/Aggremlogo.svg" alt="Imagem da empresa">
             </div>
         </section>
 
@@ -108,12 +121,13 @@
                         </div>
                     </article>
                     <article class="carousel-slide">
-                        <div class="slide-visual slide-juridico">
-                            <span class="slide-visual-text">Plataforma Jurídica</span>
+                        <div class="slide-visual slide-nocturis">
+                            <img src="img/nocturis-logo.png" alt="Logo da Nocturis">
                         </div>
                         <div class="slide-caption">
-                            <h4>Plataforma Jurídica</h4>
+                            <h4>Nocturis</h4>
                             <p>Triagem inteligente que conecta cidadãos a advogados independentes. Em desenvolvimento.</p>
+                            <a href="https://nocturis.com.br" target="_blank" rel="noopener noreferrer" class="slide-link">Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </article>
                     <article class="carousel-slide">
@@ -166,6 +180,35 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="team-section">
+            <div class="section-header">
+                <p class="section-subtitle">Quem faz a Aggrem</p>
+                <h3>Nossa equipe</h3>
+            </div>
+            <div class="team-grid">
+                <article class="team-card">
+                    <img class="team-photo" src="img/team/gustavo-cereja.webp" alt="Foto de Gustavo Cereja Peres">
+                    <h4>Gustavo Cereja Peres</h4>
+                    <p class="team-role">Líder &amp; Analista</p>
+                </article>
+                <article class="team-card">
+                    <img class="team-photo" src="img/team/guilherme-reche.webp" alt="Foto de Guilherme Reche Alamino">
+                    <h4>Guilherme Reche Alamino</h4>
+                    <p class="team-role">Backend &amp; Banco de Dados</p>
+                </article>
+                <article class="team-card">
+                    <img class="team-photo" src="img/team/gabriel-paulucci.webp" alt="Foto de Gabriel Paulucci">
+                    <h4>Gabriel Paulucci</h4>
+                    <p class="team-role">Frontend</p>
+                </article>
+                <article class="team-card">
+                    <img class="team-photo" src="img/team/gustavo-abade.webp" alt="Foto de Gustavo Abade">
+                    <h4>Gustavo Abade</h4>
+                    <p class="team-role">Designer</p>
+                </article>
             </div>
         </section>
 
@@ -250,7 +293,10 @@
             </div>
         </div>
         <p class="footer-note">© 2026 Aggrem. Todos os direitos reservados.</p>
+        <p class="footer-credit">Modelo 3D "<a href="https://poly.pizza/m/6qp53W5djC5" target="_blank" rel="noopener noreferrer">Mountain</a>" por Servin Nissen, licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</p>
     </footer>
+
+<script type="module" src="js/hero3d.js"></script>
 
 <script>
     // =========================
