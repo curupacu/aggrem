@@ -967,13 +967,29 @@ section {
     }
 }
 
-/* ---------- Projeto Nocturis (destino do QR code da banca) ---------- */
+/* ---------- Projeto Nocturis (destino do QR code da banca) ----------
+   Parte só informativa: fundo sólido (a montanha 3D não aparece por trás), cartões opacos,
+   sem brilho nem movimento, texto maior e fácil de ler. */
+.projeto-section {
+    position: relative;
+    z-index: 2;
+    margin: 2rem 3rem 3rem;
+    padding: 3rem;
+    border: 1px solid rgba(201, 125, 255, 0.18);
+    border-radius: 28px;
+    background: var(--surface2);
+}
+
+.projeto-section .section-header {
+    text-align: center;
+}
+
 .projeto-intro {
     max-width: 720px;
-    margin: 0 auto 32px;
+    margin: 0 auto 2.5rem;
     text-align: center;
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .projeto-intro a {
@@ -981,22 +997,48 @@ section {
     font-weight: 600;
 }
 
-.projeto-card {
+.projeto-section .projeto-card {
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    border: 1px solid rgba(201, 125, 255, 0.2);
+    background: var(--surface);
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.projeto-section .projeto-card:hover {
+    transform: none;
+    border-color: rgba(201, 125, 255, 0.45);
+}
+
+.projeto-card h4 {
+    font-size: 1.25rem;
 }
 
 .projeto-card p {
     flex: 1;
+    font-size: 1rem;
+    color: var(--muted);
 }
 
 .projeto-card .button {
-    align-self: flex-start;
-    margin-top: 16px;
+    align-self: stretch;
+    justify-content: center;
+    margin-top: 1.25rem;
+    text-align: center;
+    text-decoration: none;
 }
 
 .projeto-embreve {
-    opacity: 0.6;
+    opacity: 0.55;
     cursor: default;
     pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .projeto-section {
+        margin: 1.5rem 1rem 2rem;
+        padding: 2rem 1.25rem;
+    }
 }
