@@ -966,3 +966,37 @@ section {
         animation: none;
     }
 }
+
+/* ---------- Projeto Nocturis (destino do QR code da banca) ---------- */
+.projeto-intro {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.projeto-intro a {
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+.projeto-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.projeto-card p {
+    flex: 1;
+}
+
+.projeto-card .button {
+    align-self: flex-start;
+    margin-top: 16px;
+}
+
+.projeto-embreve {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+}
