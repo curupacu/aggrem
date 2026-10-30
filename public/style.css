@@ -1042,3 +1042,79 @@ section {
         padding: 2rem 1.25rem;
     }
 }
+
+/* ---------- Leitura sobre a montanha 3D (29/10/2026) ----------
+   Os cartões eram quase transparentes e o subtítulo era um degradê roxo: roxo em cima da
+   montanha roxa, o texto sumia. Agora os cartões são opacos e os textos têm cor sólida clara. */
+:root {
+    --muted: #cdbdec;
+}
+
+.section-subtitle {
+    background: none;
+    color: #e3d0ff;
+    text-shadow: 0 2px 14px rgba(10, 6, 18, 0.9);
+}
+
+.section-header h3 {
+    text-shadow: 0 2px 6px rgba(10, 6, 18, 0.85), 0 4px 30px rgba(10, 6, 18, 0.9);
+}
+
+.card,
+.team-card,
+.contact-card,
+.contact-form,
+.about-card {
+    background: var(--surface2);
+    border-color: rgba(201, 125, 255, 0.2);
+    backdrop-filter: none;
+}
+
+.card p,
+.card h4,
+.team-card h4 {
+    color: var(--text);
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.card-icon,
+.team-role {
+    color: #e3d0ff;
+}
+
+.slide-caption {
+    background: rgba(15, 8, 32, 0.94);
+}
+
+/* fundo do Perfiz no carrossel: amarelo mais escuro que a logo, pra ela continuar destacada */
+.slide-perfiz {
+    background: linear-gradient(135deg, #b8891a, #7a580c);
+}
+
+/* Projeto Nocturis: ficaram dois cartões (relatório e código) */
+.projeto-section .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+    .projeto-section .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* texto de Missão, Visão e Valores também ficava solto em cima da montanha */
+.about-grid > div:first-child {
+    background: var(--surface2);
+    border: 1px solid rgba(201, 125, 255, 0.2);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.about-grid strong {
+    color: #e3d0ff;
+}
